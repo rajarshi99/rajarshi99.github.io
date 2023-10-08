@@ -12,6 +12,14 @@
 
 Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Complex Systems
 
+### [Projects](proj.html)
+
+> Emergent activity network in a model of puncuated equilibrium
+
+> Term papers from course on "Modelling Complex Systems"
+
+> Ongoing work on Variational Physics Informed Neural Networks (VPINNs)
+
 ### Experience
 
 > **May 2021 - May 2022** Research on a dynamical system exhibiting self organised criticality in the presence of random links under the guidance of Prof. Sudeshna Sinha [published on 23rd December 2022](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
