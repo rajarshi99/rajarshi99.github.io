@@ -14,9 +14,9 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 ### [Projects](proj.html)
 
-> Emergent activity network in a model of puncuated equilibrium
+> [DS 200 : Basic Data Analysis](https://github.com/rajarshi99/data_gov/blob/main/data_gov.ipynb)
 
-> Term papers from course on "Modelling Complex Systems"
+> [Emergent activity network in a model of puncuated equilibrium](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
 
 > Ongoing work on Variational Physics Informed Neural Networks (VPINNs)
 
