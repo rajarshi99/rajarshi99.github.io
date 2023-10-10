@@ -10,7 +10,7 @@ which has some basic data anaylsis on govenment data about schools in Himachal P
 ## Emergent activity network in a model of puncuated equilibrium
 
 Find my [research work](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
-for my masters thesis project at IISER Mohali during the academic year August 2022 to April 2023.
+for my masters thesis project at IISER Mohali during the academic year August 2021 to April 2022.
 
 ## Ongoing work on Variational Physics Informed Neural Networks (VPINNs)
 
