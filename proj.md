@@ -8,7 +8,8 @@ I will be sharing the link showcasing the progress soon...
 
 ## Basic FEM program in python for Poisson's problem in 2D
 
-Find the python program for solving 2D Poisson's problem and some performance checks.
+Find the [python program](https://github.com/rajarshi99/BasicFEM)
+for solving 2D Poisson's problem and some performance checks.
 
 ## DS 200 : Basic Data Analysis
 
