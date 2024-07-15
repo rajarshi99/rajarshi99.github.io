@@ -16,7 +16,7 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 > Ongoing work on meshing techniques for finite element methods
 
-> Basic FEM program in python for Poisson's problem in 2D
+> [Basic FEM program in python for Poisson's problem in 2D](https://github.com/rajarshi99/BasicFEM)
 
 > [DS 200 : Basic Data Analysis](https://github.com/rajarshi99/data_gov/blob/main/data_gov.ipynb)
 
