@@ -14,11 +14,13 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 ### [Projects](proj.html)
 
+> Ongoing work on meshing techniques for finite element methods
+
+> Basic FEM program in python for Poisson's problem in 2D
+
 > [DS 200 : Basic Data Analysis](https://github.com/rajarshi99/data_gov/blob/main/data_gov.ipynb)
 
 > [Emergent activity network in a model of puncuated equilibrium](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
-
-> Ongoing work on Variational Physics Informed Neural Networks (VPINNs)
 
 ### Experience
 
