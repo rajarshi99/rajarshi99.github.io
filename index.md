@@ -54,4 +54,4 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 > **DoB** 26th April 1999
 
-Link to the [resume](Resume/resume.pdf)
+Link to the [resume](resume/Resume.pdf)
