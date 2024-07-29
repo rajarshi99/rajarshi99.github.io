@@ -21,3 +21,7 @@ which has some basic data anaylsis on govenment data about schools in Himachal P
 Find my [research work](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
 for my masters thesis project at IISER Mohali during the academic year August 2021 to April 2022.
 
+---
+
+Back to [homepage](index.html)
+
