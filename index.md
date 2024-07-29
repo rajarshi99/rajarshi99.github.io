@@ -24,7 +24,7 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 ### Experience
 
-> **May 2021 - May 2022** Research on a dynamical system exhibiting self organised criticality in the presence of random links under the guidance of Prof. Sudeshna Sinha [published on 23rd December 2022](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
+> **May 2021 - May 2022** Research on a dynamical system exhibiting self organised criticality in the presence of random links under the guidance of [Prof. Sudeshna Sinha](https://web.iisermohali.ac.in/dept/physics/Sudeshna_Sinha.html) [published on 23rd December 2022](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
 
 > **June-July 2021** Teaching assistance for second year undergraduate course on Electrodynamics with instructor Dr. Abhishek Chaudhuri
 
