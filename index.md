@@ -32,7 +32,7 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 ### Education
 
-> **PhD (Ongoing)** Pursuing my PhD at the department of Computational and Data Sciences under the supervision of [Prof Sashi Kumaar Ganesan](http://cds.iisc.ac.in/faculty/sashi/)
+> **PhD (Ongoing)** Pursuing my PhD at the department of Computational and Data Sciences under the supervision of [Prof. Sashi Kumaar Ganesan](http://cds.iisc.ac.in/faculty/sashi/)
 
 > **BS-MS (2022)** Physics Major in [IISER Mohali](https://www.iisermohali.ac.in/) with a CPI of 8.9 out of 10
 
