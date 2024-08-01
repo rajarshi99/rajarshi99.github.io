@@ -56,4 +56,7 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 ---
 
-Link to the [resume](resume/Resume.pdf)
+Link to [resume](resume/Resume.pdf),
+[Email](mailto:rajarshi99@gmail.com),
+[GitHub](https://github.com/rajarshi99/),
+[LinkedIn](https://www.linkedin.com/in/rajarshi99/)
