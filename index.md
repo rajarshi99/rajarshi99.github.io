@@ -8,6 +8,15 @@
 
 > [Indian Institute of Science](https://iisc.ac.in/)
 
+<p align="right">
+<a href="resume/Resume.pdf">Resume</a>,
+<a href="mailto:rajarshi99@gmail.com">Email</a>,
+<a href="https://github.com/rajarshi99/">GitHub</a>,
+<a href="https://www.linkedin.com/in/rajarshi99/">LinkedIn</a>
+</p>
+
+---
+
 ### Research Interests
 
 Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Complex Systems
