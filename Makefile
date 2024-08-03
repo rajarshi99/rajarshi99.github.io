@@ -9,5 +9,5 @@ all: $(OUT)
 	pandoc $< -o $@
 
 clean:
-	echo $(OUT)
+	rm $(OUT)
 
