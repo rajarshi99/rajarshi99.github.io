@@ -5,9 +5,9 @@ OUT = $(MD:.md=.html)
 
 all: $(OUT)
 
-%.html : %.md
-	pandoc $< -o $@
+%.html : %.md footer.md
+	cat $< footer.md | pandoc -o $@
 
 clean:
-	rm $(OUT)
+	rm -rf $(OUT)
 

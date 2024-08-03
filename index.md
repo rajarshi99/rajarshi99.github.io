@@ -54,9 +54,3 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 > **DoB** 26th April 1999
 
----
-
-Link to [resume](resume/Resume.pdf),
-[Email](mailto:rajarshi99@gmail.com),
-[GitHub](https://github.com/rajarshi99/),
-[LinkedIn](https://www.linkedin.com/in/rajarshi99/)
