@@ -1,17 +1,15 @@
-<h1 id="rajarshis-website">Rajarshi’s website</h1>
-<p>Find my</p>
-<blockquote>
-<p><a href="https://rajarshi99.github.io/">website</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://github.com/rajarshi99">github page</a></p>
-</blockquote>
-<p>How do I buid my website? I edit the content in markdown and then
-using <code>pandoc</code> convert it to html files. This is automated in
-the script <code>build.sh</code>. So I just need to run the
-following.</p>
-<pre><code>sh build.sh</code></pre>
-<p>Last updated: 29 July 2024</p>
+<h1 id="about-my-website">About my website</h1>
+<p>My <a href="https://rajarshi99.github.io/">website</a> is hosted by
+GitHub. To do so I had to create a repository with the name
+<code>rajarshi99.github.io</code> and the rest was pretty easy. If your
+github username is xyz then you would need to create the repository
+<code>xyz.github.io</code>, in my opinion.</p>
+<p>For easy editing I write the content in markdown and then I run a
+custom <code>Makefile</code> using the <code>make</code> command. The
+<code>Makefile</code> concatenates <code>footer.md</code> to each of the
+files with the extension <code>.md</code> and then uses the
+<code>pandoc</code> program to generate the required web pages.</p>
+<p>Last updated: 3 Aug 2024</p>
 <hr />
 <p>Links to <a href="index.html">homepage</a>, <a
 href="resume/Resume.pdf">resume</a>, <a
