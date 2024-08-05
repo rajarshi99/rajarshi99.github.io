@@ -3,5 +3,5 @@
 
 Links to [homepage](index.html),
 [resume](resume/Resume.pdf),
-[project](proj.html),
+[projects](proj.html),
 and [more...](more.html)
