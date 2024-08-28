@@ -1,7 +1,7 @@
 split($9, fname, ".") == 2 && fname[2] == "md"{
 	entry = fname[1]
 	getline headline < (entry ".md")
-	sub(/#/, "", headline)
+	sub(/#*/, "", headline)
 	printf "\n\n---\n\n> [%s](%s.html)\n", headline, entry
 	for(n = 5; (getline line1 < (entry ".md")) > 0 && n > 0; n--){
 		sub(/#*/, "", line1)
