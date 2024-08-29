@@ -1,9 +1,10 @@
 \documentclass{article}
 
 \usepackage{amsmath, amssymb}
-\usepackage[margin=1.2in]{geometry}
+%\usepackage[margin=1.2in]{geometry}
 
-\title{2D Linear Elasciticity}
+\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+\title{2D Linear Elasticity}
 
 \author{
 	Rajarshi Dasgupta
@@ -12,6 +13,86 @@
 \begin{document}
 
 \maketitle
+
+In the two dimensional elasticity problem
+we need to find the displacement $u = u_x \hat{e}_x + u_y \hat{e}_y$
+at a point $(x,y) \in \Omega$, the domain.
+Extrapolation to two dimensions
+of the simplistic one dimensional strain $= \Delta l / l$,
+leads to a 2nd order strain tensor.
+
+\begin{align*}
+  & \epsilon = 
+  \begin{bmatrix}
+    \epsilon_{xx} & \epsilon_{xy} \\ \epsilon_{yx} & \epsilon_{yy}
+  \end{bmatrix} \\
+  & \epsilon_{ij} = \frac{1}{2} \left( \pder{u_i}{j} + \pder{u_j}{i} \right)
+  & i,j \mbox{ are placeholders for } x,y\\
+  \implies & \epsilon_{xx} = \pder{u_x}{x} \\
+  & \epsilon_{xy} = \left( \pder{u_x}{y} + \pder{u_y}{x} \right)/2\\
+  & \epsilon_{yx} = \left( \pder{u_y}{x} + \pder{u_x}{y} \right)/2\\
+  & \epsilon_{yy} = \pder{u_y}{y} \\
+\end{align*}
+
+The constitutive relation is linear
+and is defined be a 4th order tensor $C$.
+So, the 2nd order stress tensor is given by
+\begin{align*}
+  \sigma_{ij} = \sum_{k=x,y} \sum_{l=x,y} C_{ijkl} \epsilon_{kl}
+\end{align*}
+where again $i$ and $j$ are placeholders for $x$ or $y$.
+Let $\hat{n}$ be the outward normal on a point on the boundary
+of the domain $\Omega$.
+Now, the components of the traction vector is given by
+\begin{align*}
+  t_i & = \sum_{j=x,y} \sigma_{ij} n_j & i=x,y
+\end{align*}
+The essential boundary condition
+would be to specify $u$,
+wheras the natural boundary condition
+would be to specify the traction $t$.
+
+To make our lives easier we consider the engineering strain
+$[\epsilon_{xx} \, \epsilon_{yy} \, \gamma_{xy}]^\mathsf{T}$
+where $\gamma_{xy} = 2 \epsilon_{xy}$ is engineering shear strain.
+Now, we can write the constitutive relation using a matrix $C$.
+\begin{align*}
+  \begin{bmatrix}
+    \sigma_{xx} \\ \sigma_{yy} \\ \sigma_{xy}
+  \end{bmatrix}
+  = C
+  \begin{bmatrix}
+    \epsilon_{xx} \\ \epsilon_{yy} \\ \gamma_{xy}
+  \end{bmatrix}
+\end{align*}
+Two of the usual choices for $C$ are
+\begin{align*}
+  \frac{E}{1 - \nu^2}
+  \begin{bmatrix}
+    1 & \nu & 0 \\
+    \nu & 1 & 0 \\
+    0 & 0 & \frac{1-\nu}{2} \\
+  \end{bmatrix}, &&
+  \frac{E}{(1+\nu)(1-2\nu)}
+  \begin{bmatrix}
+    1-\nu & \nu & 0 \\
+    \nu & 1-\nu & 0 \\
+    0 & 0 & \frac{1-2\nu}{2} \\
+  \end{bmatrix}
+\end{align*}
+where $E$ is the Youngs modulus
+and $\nu$ is the Poisson's ratio.
+
+Now that we have clearly defined
+the stress and strain we can write the governing equation
+\begin{align*}
+  & \pder{\sigma_{xx}}{x} + \pder{\sigma_{xy}}{y} + b_x = 0 \\
+  & \pder{\sigma_{xy}}{x} + \pder{\sigma_{yy}}{y} + b_y = 0 \\
+\end{align*}
+where $b_x \hat{e}_x + b_y \hat{e}_y$ is the given body force
+at the point $(x,y)$.
+
+
 
 \end{document}
 
