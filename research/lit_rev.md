@@ -35,11 +35,49 @@ Date
 
 Let us first look into the example of
 [2D linear elasticity](lin_elasc2d/notes.pdf) problem in the paper.
-They consider a set of polygon domains of 6-8 edges
-where each edge can have only one of the following three types of boundary conditions.
-1. Zero displacement (Dirichlet)
-2. Specified uniform traction (Neumann)
-3. Unconstrained (Neumann)
+
+A neural network is trained which has inputs
+
+1. Boundary geometry:
+Chosen from a set of polygons of 6-8 edges
+
+2. Boundary condition:
+Each edge can have only one of the following
+three types of boundary conditions.
+- BC1: zero displacement
+- BC2: specified uniform traction in a given range
+- BC3: unconstrained; which means zero traction
+
+3. Material parameters:
+Poisson's ratio and density in a given range
+
+4. Point in the domain
+
+The output of the NN is the target area upper bound A.
+The training is carried out in a supervised fashion
+the key steps to be followed are given below.
+
+1. Create a list of problems by choosing the
+boundary geometry, condition Poisson' ratio etc
+and parameterise them.
+So, each problem can be assigned a set of numbers.
+
+2. Numerically solve each problem for a
+Low Density Uniform Mesh (LDUM) to get a Low Accuracy Solution (LAS)
+and a High Density Uniform Mesh (HDUM) to get a High Accuracy Solution (HAS).
+
+3. Let P_i be the parameters of the i-th problem.
+x_j be the center of the j-th element in the LDUM of the i-th problem
+and E_ij be the error approximate for the j-th element in the LDUM of the i-th problem.
+To find E_ij the HAS and LAS are used.
+The NN is trained to minimise the loss
+
+> mean square (NN(P_i, x_j) - 1/E_ij).
+
+Now for an unseen problem we can get the
+target area upper bound A.
+This is used by the Triangle package
+to form the non-uniform mesh.
 
 ## Turbulence Modelling
 
