@@ -35,7 +35,6 @@ Date
 
 Let us first look into the example of
 [2D linear elasticity](lin_elasc2d/notes.pdf) problem in the paper.
-
 A neural network is trained which has inputs
 
 1. Boundary geometry:
@@ -58,7 +57,7 @@ The training is carried out in a supervised fashion
 the key steps to be followed are given below.
 
 1. Create a list of problems by choosing the
-boundary geometry, condition Poisson' ratio etc
+boundary geometry, boundary condition, Poisson' ratio etc
 and parameterise them.
 So, each problem can be assigned a set of numbers.
 
