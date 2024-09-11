@@ -34,7 +34,7 @@ Date
 
 
 Let us first look into the example of
-[2D linear elasticity](lin_elasc2d/notes.pdf) problem in the paper.
+[2D linear elasticity](notes/lin_elasc_2d.pdf) problem in the paper.
 A neural network is trained which has inputs
 
 1. Boundary geometry:
