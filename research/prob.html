@@ -1,11 +1,39 @@
 <h2 id="problem-statement">Problem Statement</h2>
 <blockquote>
-<p>Given a boundary value problem and a mesh over its computational
-domain, <br> optimise the coordinates of the mesh to obtain a high
-accuracy FEM solution, <br> while utilising the underlying physics of
-the problem.</p>
+<p>Given a Boundary Value Problem (BVP) and a mesh over its
+computational domain, <br> optimise the coordinates of the mesh to
+obtain a high accuracy Finite Element Methods (FEM) solution, <br> while
+utilising the underlying physics of the problem.</p>
 </blockquote>
 <h2 id="origin-of-the-problem">Origin of the problem</h2>
+<p>In Science and Engineering, quantities which are continuous functions
+of space and time are modelled as a BVP. In a BVP, we are given a
+domain, Partial Differential Equations (PDEs) to be solved and the
+constraints to be imposed at the boundary of the domain. As an example,
+simulation of the airflow around an airfoil is modelled by a BVP.
+Airfoils are objects of shapes which can, for favourable airflow,
+generate lift (countering the gravitational forces) like the wings of a
+turbine or aircraft. For airflow simulation, the Navier-Stokes Equations
+(NSE) describe the physics at each point in the domain in the form of
+PDEs. To specify the inflow, outflow and the friction of the air with
+the airfoil we impose boundary conditions on the velocity and pressure
+at the surface of the airfoil and a rectangle around the airfoil marking
+the region of interest as described in figure . The first step for
+numerically solving such PDEs, is to generate a mesh over the region of
+interest. The FEM with nodal basis functions for a good quality mesh and
+appropriate element sizes provide accurate and reliable solutions, but
+computational power can be a limiting factor in obtaining solutions of
+the desired accuracy. Our research is focused on balancing the
+computational cost and accuracy to find an optimal mesh while exploiting
+the parallel computing possibilities.</p>
+<p>Time-independent BVPs capture the steady state of the system, while
+time-dependent ones capture the evolution. A steady state occurs when
+the system no longer changes significantly with time and the transience
+has died down. The Reynolds number, a dimensionless quantity
+representing the ratio of inertial to viscous forces, is a measure of
+turbulence in the system. Higher Reynolds numbers often necessitate
+finer grids and smaller time steps to resolve turbulent features like
+eddies and vortices while maintaining numerical stability.</p>
 <h2 id="on-finding-mesh-coordinates">On finding mesh coordinates</h2>
 <h2 id="on-optimising-mesh-coordinates">On optimising mesh
 coordinates</h2>
