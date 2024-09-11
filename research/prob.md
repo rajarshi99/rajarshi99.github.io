@@ -60,3 +60,54 @@ while maintaining numerical stability.
 
 ## On finding FEM solution
 
+## Proposed Methodologies
+
+The goal is to begin with a coarse mesh
+and optimise the mesh coordinates
+to obtain solutions of enhanced accuracy.
+First, we will develop the algorithm
+for the 2 dimensional Poisson's problem
+with [manufactured solutions](notes/mms.pdf)
+as it will be good way to understand if our methods
+improves accuracy.
+
+The basic plan to be implemented
+for time-independent BVP is given below.
+
+1. To generate the initial coarse mesh,
+the Triangle package in Python will be used.
+
+2. After the assembly of the stiffness matrix and the consistent load vector
+the FEM solution will be computed
+using the linear solver in the Numpy or Scipy package in Python.
+
+3. A loss function will be defined
+based on a-posteriori error estimates,
+like the element residual method,
+which will take as inputs
+the mesh coordinates and the FEM solution on the mesh.
+
+4. An iteration of a gradient based method,
+using the TensorFlow package,
+will applied to tweak the mesh coordinates to reduce the loss value.
+  
+5. Another method which utilises the TensorFlow package
+will be used corect the FEM solution for the tweaked mesh.
+This will be possible as only the coordinates of the nodes have changed
+and not the connections between them.
+
+6. We have to loop through steps 4 and 5
+to achieve a desirable mesh and a solution on it.
+
+Starting from the Poisson's problem,
+we will move to singularly perturbed problems,
+convection-diffusion problem,
+lid driven cavity problem,
+channel flow problem,
+flow past circular cylinder problem,
+and then finally
+the airfoil problem.
+The airfoil specifications will be
+chosen from the
+National Advisory Committee for Aeronautics (NACA)
+[database.](http://airfoiltools.com/search/index?m%5Bgrp%5D=naca4d&m%5Bsort%5D=1)

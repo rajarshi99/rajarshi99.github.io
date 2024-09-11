@@ -38,6 +38,39 @@ eddies and vortices while maintaining numerical stability.</p>
 <h2 id="on-optimising-mesh-coordinates">On optimising mesh
 coordinates</h2>
 <h2 id="on-finding-fem-solution">On finding FEM solution</h2>
+<h2 id="proposed-methodologies">Proposed Methodologies</h2>
+<p>The goal is to begin with a coarse mesh and optimise the mesh
+coordinates to obtain solutions of enhanced accuracy. First, we will
+develop the algorithm for the 2 dimensional Poisson’s problem with <a
+href="notes/mms.pdf">manufactured solutions</a> as it will be good way
+to understand if our methods improves accuracy.</p>
+<p>The basic plan to be implemented for time-independent BVP is given
+below.</p>
+<ol type="1">
+<li><p>To generate the initial coarse mesh, the Triangle package in
+Python will be used.</p></li>
+<li><p>After the assembly of the stiffness matrix and the consistent
+load vector the FEM solution will be computed using the linear solver in
+the Numpy or Scipy package in Python.</p></li>
+<li><p>A loss function will be defined based on a-posteriori error
+estimates, like the element residual method, which will take as inputs
+the mesh coordinates and the FEM solution on the mesh.</p></li>
+<li><p>An iteration of a gradient based method, using the TensorFlow
+package, will applied to tweak the mesh coordinates to reduce the loss
+value.</p></li>
+<li><p>Another method which utilises the TensorFlow package will be used
+corect the FEM solution for the tweaked mesh. This will be possible as
+only the coordinates of the nodes have changed and not the connections
+between them.</p></li>
+<li><p>We have to loop through steps 4 and 5 to achieve a desirable mesh
+and a solution on it.</p></li>
+</ol>
+<p>Starting from the Poisson’s problem, we will move to singularly
+perturbed problems, convection-diffusion problem, lid driven cavity
+problem, channel flow problem, flow past circular cylinder problem, and
+then finally the airfoil problem. The airfoil specifications will be
+chosen from the National Advisory Committee for Aeronautics (NACA) <a
+href="http://airfoiltools.com/search/index?m%5Bgrp%5D=naca4d&amp;m%5Bsort%5D=1">database.</a></p>
 <hr />
 <p>Links to <a href="../index.html">homepage</a>, <a
 href="../resume/Resume.pdf">resume</a>, <a
