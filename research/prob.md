@@ -54,12 +54,6 @@ Higher Reynolds numbers often necessitate finer grids and smaller time steps
 to resolve turbulent features like eddies and vortices
 while maintaining numerical stability.
 
-## On finding mesh coordinates
-
-## On optimising mesh coordinates
-
-## On finding FEM solution
-
 ## Proposed Methodologies
 
 The goal is to begin with a coarse mesh
@@ -111,3 +105,56 @@ The airfoil specifications will be
 chosen from the
 National Advisory Committee for Aeronautics (NACA)
 [database.](http://airfoiltools.com/search/index?m%5Bgrp%5D=naca4d&m%5Bsort%5D=1)
+
+## On optimising mesh coordinates
+
+Find the descripation and result
+of [one of the simple ways](mesh_optim1.pdf)
+of forming a mesh
+by formulating a rule
+based on which the node positions will be decided.
+Here, the total potential is calculated
+using the pairwise Morse potential between all pairs of nodes.
+In my implementation,
+using TensorFlow,
+for finding the pairwise distances
+I have used the concept of sparse matirces in the following way.
+```
+import tensorflow as tf
+
+N = 65                      # Number of points
+
+row_id = 0
+indices = []
+values = []
+for i in range(N-1):
+    for j in range(i+1,N):
+        # print(i,j)
+        indices.append([row_id,i])
+        indices.append([row_id,j])
+        values.append(1.0)
+        values.append(-1.0)
+        row_id += 1
+
+diff_tf = tf.sparse.SparseTensor(indices, values, [row_id,N])
+```
+This sparse matrix is used
+to evaluate the total potential,
+defined as loss in the following code.
+```
+def loss(x,y):
+    diffx = tf.sparse.sparse_dense_matmul(diff_tf, x)
+    diffy = tf.sparse.sparse_dense_matmul(diff_tf, y)
+    # Using the Morse potential
+    d = tf.sqrt(diffx**2 + diffy**2) - re
+    return tf.reduce_sum(tf.square(1 - tf.exp(-a*d)))
+```
+Note that here any type of boundary is not considered.
+
+Another [toy problem](mesh_optim2.pdf)
+shows how mesh coordinates can be optimised
+using a gradient descent stratergy.
+As an example, the objective function
+considered is the variation in the area of the elements.
+Here the boundary nodes are not moved
+as the gradients are not applied on them.
