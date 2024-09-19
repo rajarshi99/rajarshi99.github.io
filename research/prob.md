@@ -4,9 +4,11 @@ title: Research Proposal
 
 ## Problem Statement
 
-> Given a Boundary Value Problem (BVP) and a mesh over its computational domain, <br>
-> optimise the coordinates of the mesh to obtain a high accuracy Finite Element Methods (FEM) solution, <br>
-> while utilising the underlying physics of the problem.
+Given a Boundary Value Problem (BVP)
+and a mesh over its computational domain,
+optimise the coordinates of the mesh
+to obtain a high accuracy Finite Element Methods (FEM) solution,
+while utilising the underlying physics of the problem.
 
 ## Origin of the problem
 
