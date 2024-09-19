@@ -4,4 +4,4 @@
 Links to [homepage](index.html),
 [resume](resume/Resume.pdf),
 [projects](proj.html),
-and [more...](more_header.html)
+and [more...](more.html)

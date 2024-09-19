@@ -1,11 +1,9 @@
 split($9, fname, ".") == 2 && fname[2] == "md"{
 	entry = fname[1]
-	getline headline < (entry ".md")
-	sub(/#*/, "", headline)
-	printf "\n\n---\n\n> [%s](%s.html)\n", headline, entry
-	for(n = 5; (getline line1 < (entry ".md")) > 0 && n > 0; n--){
-		sub(/#*/, "", line1)
-		printf "\n> " line1
+	for(n = 8; (getline line < (entry ".md")) > 0 && n > 0; n--){
+		if(sub(/title:/, "", line))
+			title = line
 		}
-	printf "...<p align=\"right\"> %s %s %s </p>\n\n", entry, $6, $7
+	printf "\n\n---\n\n[%s](%s.html)\n", title, entry
+	printf "<p align=\"right\"> ... %s %s %s </p>\n\n", entry, $6, $7
 	}
