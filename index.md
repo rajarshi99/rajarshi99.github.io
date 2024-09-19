@@ -1,5 +1,5 @@
-# [Rajarshi Dasgupta](pics/me.jpg)
-
+---
+title: "[Rajarshi Dasgupta](pics/me.jpg)"
 ---
 
 > PhD Student, [AiREX lab](https://airexlab.cds.iisc.ac.in/)

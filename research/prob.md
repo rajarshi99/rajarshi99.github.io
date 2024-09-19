@@ -1,3 +1,7 @@
+---
+title: Research Proposal
+---
+
 ## Problem Statement
 
 > Given a Boundary Value Problem (BVP) and a mesh over its computational domain, <br>

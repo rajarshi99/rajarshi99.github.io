@@ -1,5 +1,5 @@
-# Projects
-
+---
+title: Projects
 ---
 
 ## Ongoing work on meshing techniques for finite element methods

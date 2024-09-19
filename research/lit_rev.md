@@ -1,4 +1,6 @@
-# Literature Review
+---
+title: Literature Review
+---
 
 In academia,
 people at times encounter research happening
