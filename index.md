@@ -21,16 +21,6 @@ title: "[Rajarshi Dasgupta](pics/me.jpg)"
 
 Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Complex Systems
 
-### [Projects](proj.html)
-
-> Ongoing work on meshing techniques for finite element methods
-
-> [Basic FEM program in python for Poisson's problem in 2D](https://github.com/rajarshi99/BasicFEM)
-
-> [DS 200 : Basic Data Analysis](https://github.com/rajarshi99/data_gov/blob/main/data_gov.ipynb)
-
-> [Emergent activity network in a model of puncuated equilibrium](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
-
 ### Experience
 
 > **May 2021 - May 2022** Research on a dynamical system exhibiting self organised criticality in the presence of random links under the guidance of [Prof. Sudeshna Sinha](https://web.iisermohali.ac.in/dept/physics/Sudeshna_Sinha.html) [published on 23rd December 2022](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
