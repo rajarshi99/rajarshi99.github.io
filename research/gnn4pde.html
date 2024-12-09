@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Rajarshi Dasgupta</title>
+  <title>Solving BVPs using GNN</title>
   <style>
     html {
       line-height: 1.5;
@@ -165,92 +165,39 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title"><a href="pics/me.jpg">Rajarshi Dasgupta</a></h1>
+<h1 class="title">Solving BVPs using GNN</h1>
 </header>
-<blockquote>
-<p>PhD Student, <a href="https://airexlab.cds.iisc.ac.in/">AiREX
-lab</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://cds.iisc.ac.in/">Department of Computational Data
-Sciences</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://iisc.ac.in/">Indian Institute of Science</a></p>
-</blockquote>
-<p align="right">
-<a href="resume/Resume.pdf">Resume</a>,
-<a href="mailto:rajarshi99@gmail.com">Email</a>,
-<a href="https://github.com/rajarshi99/">GitHub</a>,
-<a href="https://www.linkedin.com/in/rajarshi99/">LinkedIn</a>
-</p>
+<h2 id="solving-boundary-value-problems-bvp">Solving boundary value
+problems (BVP)</h2>
+<p>A BVP is posed by specifying a</p>
+<ol type="1">
+<li><p>domain,</p></li>
+<li><p>boundary conditions to be imposed for an unknown function defined
+on the domain</p></li>
+<li><p>and the partial differential equations (PDE) to be satisfied by
+the function.</p></li>
+</ol>
+<p>The solution for the BVP entails finding the unknown function. Finite
+element methods (FEM) are time tested numericals technique for solving
+BVP.</p>
+<p>PRACTICALITIES; PUT SOME LINES EXPLAINING APPLICATIONS; INCLUDE THE
+TERM REGION OF INTEREST (ROI)</p>
+<p>A mesh is generated over the ROI, to partition the spatial domain
+into elements. WRITE THE DEFINITION OF A MESH. Let us consider 3 node
+triangular elements. EXPLAIN THE SPECIAL CASE OF THE P1 FE IN 2D.</p>
+<p>The numerical solution of a time-independent BVP is reduced to
+solving a system of linear equations Ku = f. Where K is the global
+stiffness matirx, f is consistent load vector and u is the unknown
+vector. The i-th entry of u is the value of the function to be found at
+the i-th free node.</p>
+<p>WRITE ABOUT LINEAR SOLVER; DIRECT AND ITERATIVE</p>
+<h2 id="what-is-gnn">What is GNN?</h2>
+<h2 id="first-problem">First problem</h2>
+<h2 id="propositions">Propositions</h2>
 <hr />
-<h3 id="research-interests">Research Interests</h3>
-<p>Machine Learning, Physics Informed Neural Networks, Finite Element
-Methods, Complex Systems</p>
-<h3 id="experience">Experience</h3>
-<blockquote>
-<p><strong>May 2021 - May 2022</strong> Research on a dynamical system
-exhibiting self organised criticality in the presence of random links
-under the guidance of <a
-href="https://web.iisermohali.ac.in/dept/physics/Sudeshna_Sinha.html">Prof. Sudeshna
-Sinha</a> <a
-href="https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y">published
-on 23rd December 2022</a></p>
-</blockquote>
-<blockquote>
-<p><strong>June-July 2021</strong> Teaching assistance for second year
-undergraduate course on Electrodynamics with instructor Dr. Abhishek
-Chaudhuri</p>
-</blockquote>
-<blockquote>
-<p><strong>May-July 2018</strong> Computational work on one dimensional
-maps, understanding dimensionality of fractals, learnt and implemented
-the ‘small-world’ network, studied spatio-temporal characteristics of
-coupled lattice maps under the guidance of Prof. Sudeshna Sinha</p>
-</blockquote>
-<h3 id="education">Education</h3>
-<blockquote>
-<p><strong>PhD (Ongoing)</strong> Pursuing my PhD at the department of
-Computational and Data Sciences under the supervision of <a
-href="http://cds.iisc.ac.in/faculty/sashi/">Prof. Sashi Kumaar
-Ganesan</a></p>
-</blockquote>
-<blockquote>
-<p><strong>BS-MS (2022)</strong> Physics Major in <a
-href="https://www.iisermohali.ac.in/">IISER Mohali</a> with a CPI of 8.9
-out of 10</p>
-</blockquote>
-<blockquote>
-<p><strong>Class 12 (2017)</strong> Completed in Kendriya Vidyalaya, IIT
-Kanpur with an average of 93%</p>
-</blockquote>
-<blockquote>
-<p><strong>Class 10 (2015)</strong> Completed in Kendriya Vidyalaya, IIT
-Kanpur with 10 CGPA</p>
-</blockquote>
-<h3 id="skills">Skills</h3>
-<blockquote>
-<p><strong>Programming Languages</strong> C, C++, Python, MATLAB</p>
-</blockquote>
-<blockquote>
-<p><strong>Software</strong> LATEX, shell scripting with basic UNIX
-programs including AWK scripting</p>
-</blockquote>
-<h3 id="personal-information">Personal Information</h3>
-<blockquote>
-<p><strong>Languages</strong> I speak Hindi, English and have an
-understanding of Bengali</p>
-</blockquote>
-<blockquote>
-<p><strong>Interests</strong> Theatre and Literature</p>
-</blockquote>
-<blockquote>
-<p><strong>DoB</strong> 26th April 1999</p>
-</blockquote>
-<hr />
-<p>Links to <a href="index.html">homepage</a>, <a
-href="resume/Resume.pdf">resume</a>, <a href="proj.html">projects</a>,
-and <a href="more.html">more…</a></p>
+<p>Links to <a href="../index.html">homepage</a>, <a
+href="../resume/Resume.pdf">resume</a>, <a
+href="../proj.html">projects</a>, and <a
+href="../more.html">more…</a></p>
 </body>
 </html>
