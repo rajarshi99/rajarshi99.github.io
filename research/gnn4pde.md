@@ -20,7 +20,6 @@ The solution for the BVP
 entails finding the unknown function.
 Finite element methods (FEM)
 are time tested numericals technique for solving BVP.
-
 PRACTICALITIES;
 PUT SOME LINES EXPLAINING APPLICATIONS;
 INCLUDE THE TERM REGION OF INTEREST (ROI)
@@ -43,10 +42,61 @@ at the i-th free node.
 WRITE ABOUT LINEAR SOLVER;
 DIRECT AND ITERATIVE
 
-## What is GNN?
+## Graph Neural Network
 
-## First problem
+A [Graph](https://en.wikipedia.org/wiki/Graph_theory)
+is a mathematical construct
+defined by a set of vertices and edges.
+Several real world scenarios can be modelled by graphs,
+by assigning meaning,
+or attributes,
+to the vertices (or nodes) and edges.
+The underlying mesh of an FEM solver
+can be thought of as Graph,
+where each node may be assigned attributes like
 
-## Propositions
+1. the coordinates,
+
+1. proposed value of the unknown function u,
+
+1. an indicator for the the node being on the boundary,
+
+1. or if there is data involved then a flag for that
+
+and so on.
+Similarly, an edge,
+which is the connection between two nodes
+sharing an element
+may be assigned the attributes
+
+1. the gradient along the edge based on node attributes,
+
+1. or the gradients on the elements of the edge is the boundary of
+
+and so on.
+
+EXPLAIN THE GNN
+
+## Toy Problems
+
+1. Take the Poi 2D problem with only Dirichlet boundary.
+Generate a mesh using the Triangle package in python.
+Choose a naive guess solution.
+Assign the guess solution values at the nodes.
+Experiment with GNN with loss being l2 err of Ku - f.
+Figure out the metrics and write them.
+Provide a link to a python notebook.
+
+1. Do the same as above
+but insted tweak the neighbourhood activation function
+to a differential function
+with the intuition of gradients and attributes.
+
+## Conclusion
+
+Write how good or bad it is.
+How is it similar to FEM?
+In what aspects can this be used in the real world?
+Inverse problems?
 
 

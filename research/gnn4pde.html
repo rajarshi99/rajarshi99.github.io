@@ -179,8 +179,7 @@ the function.</p></li>
 </ol>
 <p>The solution for the BVP entails finding the unknown function. Finite
 element methods (FEM) are time tested numericals technique for solving
-BVP.</p>
-<p>PRACTICALITIES; PUT SOME LINES EXPLAINING APPLICATIONS; INCLUDE THE
+BVP. PRACTICALITIES; PUT SOME LINES EXPLAINING APPLICATIONS; INCLUDE THE
 TERM REGION OF INTEREST (ROI)</p>
 <p>A mesh is generated over the ROI, to partition the spatial domain
 into elements. WRITE THE DEFINITION OF A MESH. Let us consider 3 node
@@ -191,9 +190,42 @@ stiffness matirx, f is consistent load vector and u is the unknown
 vector. The i-th entry of u is the value of the function to be found at
 the i-th free node.</p>
 <p>WRITE ABOUT LINEAR SOLVER; DIRECT AND ITERATIVE</p>
-<h2 id="what-is-gnn">What is GNN?</h2>
-<h2 id="first-problem">First problem</h2>
-<h2 id="propositions">Propositions</h2>
+<h2 id="graph-neural-network">Graph Neural Network</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Graph_theory">Graph</a> is a
+mathematical construct defined by a set of vertices and edges. Several
+real world scenarios can be modelled by graphs, by assigning meaning, or
+attributes, to the vertices (or nodes) and edges. The underlying mesh of
+an FEM solver can be thought of as Graph, where each node may be
+assigned attributes like</p>
+<ol type="1">
+<li><p>the coordinates,</p></li>
+<li><p>proposed value of the unknown function u,</p></li>
+<li><p>an indicator for the the node being on the boundary,</p></li>
+<li><p>or if there is data involved then a flag for that</p></li>
+</ol>
+<p>and so on. Similarly, an edge, which is the connection between two
+nodes sharing an element may be assigned the attributes</p>
+<ol type="1">
+<li><p>the gradient along the edge based on node attributes,</p></li>
+<li><p>or the gradients on the elements of the edge is the boundary
+of</p></li>
+</ol>
+<p>and so on.</p>
+<p>EXPLAIN THE GNN</p>
+<h2 id="toy-problems">Toy Problems</h2>
+<ol type="1">
+<li><p>Take the Poi 2D problem with only Dirichlet boundary. Generate a
+mesh using the Triangle package in python. Choose a naive guess
+solution. Assign the guess solution values at the nodes. Experiment with
+GNN with loss being l2 err of Ku - f. Figure out the metrics and write
+them. Provide a link to a python notebook.</p></li>
+<li><p>Do the same as above but insted tweak the neighbourhood
+activation function to a differential function with the intuition of
+gradients and attributes.</p></li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>Write how good or bad it is. How is it similar to FEM? In what
+aspects can this be used in the real world? Inverse problems?</p>
 <hr />
 <p>Links to <a href="../index.html">homepage</a>, <a
 href="../resume/Resume.pdf">resume</a>, <a
