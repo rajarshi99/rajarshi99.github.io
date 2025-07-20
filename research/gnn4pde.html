@@ -7,9 +7,6 @@
   <title>Solving BVPs using GNN</title>
   <style>
     html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
@@ -28,13 +25,16 @@
     @media (max-width: 600px) {
       body {
         font-size: 0.9em;
-        padding: 1em;
+        padding: 12px;
       }
       h1 {
         font-size: 1.8em;
       }
     }
     @media print {
+      html {
+        background-color: white;
+      }
       body {
         background-color: transparent;
         color: black;
@@ -58,6 +58,10 @@
       color: #1a1a1a;
     }
     img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -84,9 +88,10 @@
       color: #606060;
     }
     code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
       font-size: 85%;
       margin: 0;
+      hyphens: manual;
     }
     pre {
       margin: 1em 0;
@@ -151,24 +156,24 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">Solving BVPs using GNN</h1>
 </header>
-<h2 id="solving-boundary-value-problems-bvp">Solving boundary value
-problems (BVP)</h2>
+<h2 id="solving-boundary-value-problems-bvps">Solving Boundary Value
+Problems (BVPs)</h2>
 <p>A BVP is posed by specifying a</p>
 <ol type="1">
 <li><p>domain,</p></li>
@@ -178,17 +183,33 @@ on the domain</p></li>
 the function.</p></li>
 </ol>
 <p>The solution for the BVP entails finding the unknown function. Finite
-element methods (FEM) are time tested numericals technique for solving
-BVP. PRACTICALITIES; PUT SOME LINES EXPLAINING APPLICATIONS; INCLUDE THE
-TERM REGION OF INTEREST (ROI)</p>
+element methods (FEM) are time tested numerical techniques for solving
+BVPs. As an example, simulation of the airflow around an airfoil is
+modelled by a BVP. Airfoils are objects of shapes which can, for
+favourable airflow, generate lift (countering the gravitational forces)
+like the wings of a turbine or aircraft. For airflow simulation, the
+Navier-Stokes Equations (NSE) describe the physics at each point in the
+domain in the form of PDEs. To specify the inflow, outflow and the
+friction of the air with the airfoil we impose boundary conditions on
+the velocity and pressure at the surface of the airfoil and a rectangle
+around the airfoil marking the <a href="notes/roi.pdf">region of
+interest</a> (ROI).</p>
 <p>A mesh is generated over the ROI, to partition the spatial domain
-into elements. WRITE THE DEFINITION OF A MESH. Let us consider 3 node
-triangular elements. EXPLAIN THE SPECIAL CASE OF THE P1 FE IN 2D.</p>
-<p>The numerical solution of a time-independent BVP is reduced to
-solving a system of linear equations Ku = f. Where K is the global
-stiffness matirx, f is consistent load vector and u is the unknown
-vector. The i-th entry of u is the value of the function to be found at
-the i-th free node.</p>
+into elements. For a point in a 3 node triangular element, the mesh
+consists of nodes, with coordinates and an indicator of being on the
+boundary, and triplets of nodes forming a triangular cells (or elements)
+which partition the domain. The value of the unknown function for a
+point inside a cell is found by interpolating the values on the nodes of
+the cell serving as degrees of freedom. By applying the weak form of the
+PDE for each element we arrive at the element level undetermined system
+of 3 linear equations in 3 unknowns, which are the values of the unknown
+function at the nodes (of the element). Once we assemble all the
+equations for the free nodes (free of the Dirichlet boundary), the
+numerical solution of a time-independent BVP is reduced to solving a
+system of linear equations Ku = f. Where K is the global stiffness
+matrix, f is consistent load vector and u is the unknown vector. The
+i-th entry of u is the value of the function to be found at the i-th
+free node.</p>
 <p>WRITE ABOUT LINEAR SOLVER; DIRECT AND ITERATIVE</p>
 <h2 id="graph-neural-network">Graph Neural Network</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Graph_theory">Graph</a> is a
@@ -200,7 +221,7 @@ assigned attributes like</p>
 <ol type="1">
 <li><p>the coordinates,</p></li>
 <li><p>proposed value of the unknown function u,</p></li>
-<li><p>an indicator for the the node being on the boundary,</p></li>
+<li><p>an indicator for the node being on the boundary,</p></li>
 <li><p>or if there is data involved then a flag for that</p></li>
 </ol>
 <p>and so on. Similarly, an edge, which is the connection between two
@@ -211,17 +232,14 @@ nodes sharing an element may be assigned the attributes</p>
 of</p></li>
 </ol>
 <p>and so on.</p>
-<p>EXPLAIN THE GNN</p>
+<p>Graph Convolution Network (GCN) is a type of GNN. Here we only work
+with node attributes.</p>
 <h2 id="toy-problems">Toy Problems</h2>
 <ol type="1">
-<li><p>Take the Poi 2D problem with only Dirichlet boundary. Generate a
+<li>Take a Poisson’s 2D problem with only Dirichlet boundary. Generate a
 mesh using the Triangle package in python. Choose a naive guess
 solution. Assign the guess solution values at the nodes. Experiment with
-GNN with loss being l2 err of Ku - f. Figure out the metrics and write
-them. Provide a link to a python notebook.</p></li>
-<li><p>Do the same as above but insted tweak the neighbourhood
-activation function to a differential function with the intuition of
-gradients and attributes.</p></li>
+Graph Convolution Network (GCN) with loss being a norm of Ku - f.</li>
 </ol>
 <h2 id="conclusion">Conclusion</h2>
 <p>Write how good or bad it is. How is it similar to FEM? In what

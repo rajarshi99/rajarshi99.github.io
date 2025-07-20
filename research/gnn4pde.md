@@ -2,7 +2,7 @@
 title: Solving BVPs using GNN
 ---
 
-## Solving boundary value problems (BVP)
+## Solving Boundary Value Problems (BVPs)
 
 A BVP is posed
 by specifying a
@@ -19,20 +19,49 @@ to be satisfied by the function.
 The solution for the BVP
 entails finding the unknown function.
 Finite element methods (FEM)
-are time tested numericals technique for solving BVP.
-PRACTICALITIES;
-PUT SOME LINES EXPLAINING APPLICATIONS;
-INCLUDE THE TERM REGION OF INTEREST (ROI)
+are time tested numerical techniques for solving BVPs.
+As an example,
+simulation of the airflow around an airfoil is modelled by a BVP.
+Airfoils are objects of shapes which can,
+for favourable airflow,
+generate lift
+(countering the gravitational forces)
+like the wings of a turbine or aircraft.
+For airflow simulation,
+the Navier-Stokes Equations (NSE)
+describe the physics
+at each point in the domain
+in the form of PDEs.
+To specify the inflow, outflow
+and the friction of the air with the airfoil
+we impose boundary conditions
+on the velocity and pressure
+at the surface of the airfoil
+and a rectangle around the airfoil
+marking the
+[region of interest](notes/roi.pdf)
+(ROI).
 
 A mesh is generated over the ROI,
 to partition the spatial domain into elements.
-WRITE THE DEFINITION OF A MESH.
-Let us consider 3 node triangular elements.
-EXPLAIN THE SPECIAL CASE OF THE P1 FE IN 2D.
-
-The numerical solution of a time-independent BVP
+For a point in a 3 node triangular element,
+the mesh consists of nodes,
+with coordinates and an indicator of being on the boundary,
+and triplets of nodes forming a triangular cells (or elements)
+which partition the domain.
+The value of the unknown function
+for a point inside a cell
+is found by interpolating the values on the nodes of the cell
+serving as degrees of freedom.
+By applying the weak form of the PDE for each element
+we arrive at the element level undetermined system
+of 3 linear equations in 3 unknowns,
+which are the values of the unknown function at the nodes (of the element).
+Once we assemble all the equations
+for the free nodes (free of the Dirichlet boundary),
+the numerical solution of a time-independent BVP
 is reduced to solving a system of linear equations Ku = f.
-Where K is the global stiffness matirx,
+Where K is the global stiffness matrix,
 f is consistent load vector
 and u is the unknown vector.
 The i-th entry of u
@@ -59,7 +88,7 @@ where each node may be assigned attributes like
 
 1. proposed value of the unknown function u,
 
-1. an indicator for the the node being on the boundary,
+1. an indicator for the node being on the boundary,
 
 1. or if there is data involved then a flag for that
 
@@ -75,22 +104,18 @@ may be assigned the attributes
 
 and so on.
 
-EXPLAIN THE GNN
+Graph Convolution Network (GCN)
+is a type of GNN.
+Here we only work with node attributes.
 
 ## Toy Problems
 
-1. Take the Poi 2D problem with only Dirichlet boundary.
+1. Take a Poisson's 2D problem with only Dirichlet boundary.
 Generate a mesh using the Triangle package in python.
 Choose a naive guess solution.
 Assign the guess solution values at the nodes.
-Experiment with GNN with loss being l2 err of Ku - f.
-Figure out the metrics and write them.
-Provide a link to a python notebook.
-
-1. Do the same as above
-but insted tweak the neighbourhood activation function
-to a differential function
-with the intuition of gradients and attributes.
+Experiment with Graph Convolution Network (GCN)
+with loss being a norm of Ku - f.
 
 ## Conclusion
 
