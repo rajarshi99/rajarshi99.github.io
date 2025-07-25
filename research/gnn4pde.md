@@ -1,5 +1,6 @@
 ---
 title: Solving BVPs using GNN
+author: Rajarshi
 ---
 
 ## Solving Boundary Value Problems (BVPs)
