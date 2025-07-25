@@ -1,0 +1,164 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage[margin=1.2in]{geometry}
+
+\title{Irodov Problem 1.13}
+\author{Rajarshi Dasgupta}
+
+\begin{document}
+
+\maketitle
+
+\begin{quote}
+	{ \bf 1.13 }
+	Point A moves uniformly with velocity $v$
+	so that the vector $\vec{v}$
+	is continually `aimed' at point B
+	which in its turn moves rectilinearly and uniformly
+	with velocity $u < v$.
+	At the initial moment of time $\vec{v} \perp \vec{u}$
+	and the points are separated by a distance $l$.
+	How soon will the points converge?
+\end{quote}
+I want to discuss the solution of the above problem
+from `Problems in General Physics'
+by I.E. Irodov \cite{Irodov}.
+Let $T$ be the time taken for points A and B to converge.
+So, we need to find an expression for $T$
+in terms of the quantities $u$, $v$, and $l$.
+
+\section{School kid's solution}
+
+\begin{figure}
+		\centering
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\begin{tikzpicture}[scale=1.5]
+				\node at (-1.2,2.5) {(a)};
+
+				% Draw points A and B
+				\filldraw (0,0) circle (1pt) node[below] {A};
+				\filldraw (0,2) circle (1pt) node[above] {B};
+				
+				% Draw initial velocity vectors
+				\draw[->] (0,0) -- (0,1) node[right] {$\vec{v}$};
+				\draw[->] (0,2) -- (0.8,2) node[below] {$\vec{u}$};
+				
+				% Draw distance line
+				\draw[<->] (-0.5,0) -- (-0.5,2) node[midway, left] {$l$};
+		\end{tikzpicture}
+	\end{subfigure}
+	\begin{subfigure}{0.05\linewidth}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\begin{tikzpicture}[scale=1.5]
+				\node at (-1.2,2.5) {(b)};
+
+				% Draw points A and B at t = 0
+				\filldraw (0,0) circle (1pt) node[below] {A(0)};
+				\filldraw (0,2) circle (1pt) node[above] {B(0)};
+				
+				% Draw points A and B at t < T
+				\filldraw (0.8,1.5) circle (1pt) node[below] {A($t$)};
+				\filldraw (1.2,2) circle (1pt) node[above] {B($t$)};
+				
+				% Draw distance line at t = 0
+				\draw[<->] (-0.5,0) -- (-0.5,2) node[midway, left] {$l$};
+
+				% Draw distance line at t
+				\draw[<->] (0.8,1.5) -- (1.2,2);
+				\node at (1.15,1.7) {$r$};
+
+				% Angle between u and v 
+				\draw[->] (1.2,2) ++(-0.4,0) arc (0:52:-0.4);
+				\draw[dashed] (1.2,2) -- (0.7,2);
+				\node at (0.7,1.8) {$\theta$};
+		\end{tikzpicture}
+	\end{subfigure}
+	\caption{\label{basic_diag}
+		(a)
+			Velocities of points A and B
+			separated by a distance of $l$
+			at the initial moment of time $t = 0$
+		(b)
+			Velocities of points A and B
+			separated by a distance of $r$
+			at time $t \in (0,T)$.
+		}
+\end{figure}
+
+Let $r$ be the distance between the points A and B,
+and $\theta$ be the angle
+between the velocities $\vec{v}$ and $\vec{u}$.
+We consider
+the relative velocity of A with respect to B
+along AB and orthogonal to AB
+to obtain the following relation.
+\begin{align}
+	\dot{r} &= -v + u \cos \theta \label{rdot} \\
+	r \dot{\theta} &= -u \sin \theta \label{thetadot}
+\end{align}
+
+First,
+we will eliminate $\dot{\theta}$
+by differentiating equation \ref{rdot}
+with respect to time
+and then substituting the expression for $\dot{\theta}$
+from equation \ref{thetadot}.
+\begin{align*}
+	& \ddot{r} = - u \dot{\theta} \sin \theta \\
+	\implies & r \ddot{r} = u^2 \sin^2 \theta
+\end{align*}
+Now, we will eliminate $\theta$ from the above expression
+by using the trigonometric identity
+$\cos^2 \theta + \sin^2 \theta = 1$,
+and equation \ref{rdot}.
+\begin{align*}
+	r \ddot{r} &= u^2 \sin^2 \theta \\
+	&= u^2 (1 - \cos^2 \theta) \\
+	&= u^2 \{1 - \left[\frac{\dot{r}+v}{u}\right]^2 \}
+\end{align*}
+Simplifying the above expression
+we obtain the following second order differential equation.
+\begin{align*}
+	& r\ddot{r} + \dot{r}^2 + 2\dot{r}v + v^2 - u^2 = 0 \\
+	\implies & \frac{d}{dt}(r\dot{r} + 2rv) + v^2 - u^2 = 0 \\
+\end{align*}
+Now, integrating with respect to time from $t = 0$ to $T$
+we get the following expression.
+\begin{align*}
+	& \int_{t=0}^{t=T} \frac{d}{dt}(r\dot{r} + 2rv) dt
+	+ \int_{t=0}^{t=T} (v^2 - u^2) dt = 0 \\
+	\implies & r(T)\dot{r}(T) + 2r(T)v - r(0)\dot{r}(0) - 2r(0)v
+	+ (v^2 - u^2)T = 0 \\
+\end{align*}
+We will use the fact that
+\begin{align*}
+	r(0) &= l \\
+	\dot{r}(0) &= -v + u \cos \pi/2  & \mbox{(from equation \ref{rdot})}\\
+	&= -v \\
+	r(T) &= 0 & \mbox{(since A and B converge at time T)}
+\end{align*}
+to get the final expression for $T$.
+\begin{align}
+	T = \frac{lv}{v^2 - u^2}
+\end{align}
+
+\section{Physics major's solution}
+To be written please wait
+
+\section{Numerical solution}
+To be written please wait
+
+\section*{Discussion}
+To be written please wait
+
+\begin{thebibliography}{9}
+\bibitem{Irodov} I. E. Irodov, \textit{Problems in General Physics}, Mir Publishers, 1988.
+\end{thebibliography}
+
+\end{document}
