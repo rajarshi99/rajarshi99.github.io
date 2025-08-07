@@ -2,7 +2,7 @@
 title: "[Rajarshi Dasgupta](pics/me.jpg)"
 ---
 
-> PhD Student, [AiREX lab](https://airexlab.cds.iisc.ac.in/)
+> M.Tech (Research) Student, [AiREX lab](https://airexlab.cds.iisc.ac.in/)
 
 > [Department of Computational Data Sciences](https://cds.iisc.ac.in/)
 
@@ -23,21 +23,24 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 ### Experience
 
-> **May 2021 - May 2022** Research on a dynamical system exhibiting self organised criticality in the presence of random links under the guidance of [Prof. Sudeshna Sinha](https://web.iisermohali.ac.in/dept/physics/Sudeshna_Sinha.html) [published on 23rd December 2022](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
+> **December 2024** Organising Committee Member, [CASML-2024](https://casml.cc/), Indian Institute of Science (IISc), Bengaluru, India's first scientific machine learning conference, hosting up to 300 participants
 
-> **June-July 2021** Teaching assistance for second year undergraduate course on Electrodynamics with instructor Dr. Abhishek Chaudhuri
+> **October 2024** Presented a poster on `Challenges with hp-VPINNs'
+at the [Indo-German Workshop on Hardware-aware Scientific Computing](https://conan.iwr.uni-heidelberg.de/events/hasc_workshop2024/) (IGHASC)
+
+> **May 2021 - May 2022** Research on a dynamical system exhibiting self organised criticality in the presence of random links under the guidance of [Prof. Sudeshna Sinha](https://web.iisermohali.ac.in/dept/physics/Sudeshna_Sinha.html) [published on 23rd December 2022](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
 
 > **May-July 2018** Computational work on one dimensional maps, understanding dimensionality of fractals, learnt and implemented the ‘small-world’ network, studied spatio-temporal characteristics of coupled lattice maps under the guidance of Prof. Sudeshna Sinha
 
 ### Education
 
-> **PhD (Ongoing)** Pursuing my PhD at the department of Computational and Data Sciences under the supervision of [Prof. Sashi Kumaar Ganesan](http://cds.iisc.ac.in/faculty/sashi/)
+> **Ongoing M.Tech. (Research)** Pursuing my M.Tech.(Research) degree at the [department of Computational and Data Sciences, IISc](https://cds.iisc.ac.in/) under [Prof. Sashi Kumaar Ganesan](http://cds.iisc.ac.in/faculty/sashi/)
 
-> **BS-MS (2022)** Physics Major in [IISER Mohali](https://www.iisermohali.ac.in/) with a CPI of 8.9 out of 10
+> **Integrated BS-MS ** Physics Major and Data Science Minor in [IISER Mohali](https://www.iisermohali.ac.in/) with a CPI of 8.9 out of 10
 
-> **Class 12 (2017)** Completed in Kendriya Vidyalaya, IIT Kanpur with an average of 93%
+### Publications
 
-> **Class 10 (2015)** Completed in Kendriya Vidyalaya, IIT Kanpur with 10 CGPA
+> Dasgupta, R., Arun, A. \& Sinha, S. Emergent activity networks in a model of punctuated equilibrium. Eur. Phys. J. Plus 137, 1366 (2022). https://doi.org/10.1140/epjp/s13360-022-03581-y
 
 ### Skills
 
@@ -47,7 +50,7 @@ Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Comp
 
 ### Personal Information
 
-> **Languages** I speak Hindi, English and have an understanding of Bengali
+> **Languages** Proficiency in English, Hindi and working aptitude in Bengali
 
 > **Interests** Theatre and Literature
 
