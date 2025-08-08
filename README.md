@@ -37,7 +37,8 @@ more.html : more_header.md gen_toc.awk $(DEP) $(MD_DEEP)
 		| cat more_header.md - footer.txt \
 		| pandoc -s -o $@
 ```
-This is can be seen on the site called [more...](more.html)
+This is can be seen on the site called
+[more...](https://rajarshi99.github.io/more.html)
 
 ## What joy is this for?
 
