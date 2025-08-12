@@ -57,19 +57,61 @@ The input for the loss function would be
 where $n$ is the degree of freedom,
 that is the number of nodes
 on which the value of $u$ is unknown.
-If we have a $N \times N$ total nodes,
+If we have $N \times N$ total nodes,
 $n = N^2 - 4N + 3$,
 as there are $4(N-2) + 4$ boundary data points
 and 1 internal data point.
 
 The loss function we consider is the following.
-\begin{align*}
+\begin{align}
 	r &= K u_{\mathit{out}} + f_d - f_{\mathit{val}} f_0 \\
-	\mathit{Loss} &= \sum_i r_i^2
-\end{align*}
-The derivation can be found in the following section.
+	\mathit{Loss} &= \sum_i r_i^2 \label{loss}
+\end{align}
+The derivation can be found in the following sections.
 
-\section{A derivation for the loss function}
+\section{Algebraic equations for one element}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.8]
+  \draw (-1,-1) -- (5,-1) -- (5,5) -- (-1,5) -- (-1,-1) ;
+  \draw (1,3) node[left] {$V_1$} -- (3,2) node[below] {$V_2$} -- (4,4) node[right] {$V_3$} -- (1,3) ;
+  \draw[->] (0,0) -- (1,0) node[right] {$x$} ;
+  \draw[->] (0,0) -- (0,1) node[above] {$y$} ;
+\end{tikzpicture}
+\begin{tikzpicture}[scale=0.8]
+  \draw (-1,-1) -- (5,-1) -- (5,5) -- (-1,5) -- (-1,-1) ;
+  \draw (3,1) node[right] {$V'_1(1,0)$} -- (1,3) node[above] {$V'_2(0,1)$} -- (1,1) node[below] {$V'_3(0,0)$} -- (3,1) ;
+  \draw[->] (0,0) -- (1,0) node[right] {$\xi$} ;
+  \draw[->] (0,0) -- (0,1) node[above] {$\eta$} ;
+\end{tikzpicture}
+\caption{
+  The triangular element $T$ in the computaional domain
+  is shown on the left
+  while its reference element $T'$ 
+  is shown on the right.
+  }
+\label{elems}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1.8]
+  \draw (1,3) node[left] {$V_1$} -- (3,2) node[below] {$V_2$} -- (4,4) node[right] {$V_3$} -- (1,3) ;
+  \draw (8/3,3) node[above] {$O$} -- (1,3) ;
+  \draw (8/3,3) -- (3,2) ;
+  \draw (8/3,3) -- (4,4) ;
+  \draw[->] (0,0) -- (1,0) node[right] {$x$} ;
+  \draw[->] (0,0) -- (0,1) node[above] {$y$} ;
+\end{tikzpicture}
+\caption{
+  To define parameters $\xi$ and $\eta$
+  we form three triangles
+  $OV_2V_3$, $OV_3V_1$, and $OV_1V_2$
+  which put together form the triangle $V_1V_2V_3$.
+  }
+\label{bary}
+\end{figure}
 
 Consider the triangular element $T$
 as seen in figure \ref{elems}.
@@ -152,51 +194,96 @@ where,
 The RHS of equation \ref{weak} is the following.
 \begin{align*}
 	& \int_T f \hat{v}^{\mathsf{T}} \begin{bmatrix} N_1 \\ N_2 \\ N_3 \end{bmatrix} \det J d\xi d\eta \\
-		= & f \hat{v}^{\mathsf{T}} \hat{f}_0 
+		= & f \hat{v}^{\mathsf{T}} \hat{f}_e 
 \end{align*}
-where $ \hat{f}_0 = \det J/6 \begin{bmatrix} 1 & 1 & 1 \end{bmatrix}^{\mathsf{T}}$.
+where $ \hat{f}_e = \det J/6 \begin{bmatrix} 1 & 1 & 1 \end{bmatrix}^{\mathsf{T}}$.
 
-\begin{figure}
-\centering
-\begin{tikzpicture}[scale=0.8]
-  \draw (-1,-1) -- (5,-1) -- (5,5) -- (-1,5) -- (-1,-1) ;
-  \draw (1,3) node[left] {$V_1$} -- (3,2) node[below] {$V_2$} -- (4,4) node[right] {$V_3$} -- (1,3) ;
-  \draw[->] (0,0) -- (1,0) node[right] {$x$} ;
-  \draw[->] (0,0) -- (0,1) node[above] {$y$} ;
-\end{tikzpicture}
-\begin{tikzpicture}[scale=0.8]
-  \draw (-1,-1) -- (5,-1) -- (5,5) -- (-1,5) -- (-1,-1) ;
-  \draw (3,1) node[right] {$V'_1(1,0)$} -- (1,3) node[above] {$V'_2(0,1)$} -- (1,1) node[below] {$V'_3(0,0)$} -- (3,1) ;
-  \draw[->] (0,0) -- (1,0) node[right] {$\xi$} ;
-  \draw[->] (0,0) -- (0,1) node[above] {$\eta$} ;
-\end{tikzpicture}
-\caption{
-  The triangular element $T$ in the computaional domain
-  is shown on the left
-  while its reference element $T'$ 
-  is shown on the right.
-  }
-\label{elems}
-\end{figure}
+Therefore, under the assumption that
+$V_1$, $V_2$ and $V_3$ are free nodes,
+the finite dimensional weak form boils down to
+finding $\hat{u}$ such that
+\begin{align}
+	\hat{v}^{\mathsf{T}} K_e \hat{u} = f \hat{v}^{\mathsf{T}} \hat{f}_e
+	\label{elem_weak_form}
+\end{align}
+for all $\hat{v} \in \mathbb{R}^3$.
 
-\begin{figure}
-\centering
-\begin{tikzpicture}[scale=1.8]
-  \draw (1,3) node[left] {$V_1$} -- (3,2) node[below] {$V_2$} -- (4,4) node[right] {$V_3$} -- (1,3) ;
-  \draw (8/3,3) node[above] {$O$} -- (1,3) ;
-  \draw (8/3,3) -- (3,2) ;
-  \draw (8/3,3) -- (4,4) ;
-  \draw[->] (0,0) -- (1,0) node[right] {$x$} ;
-  \draw[->] (0,0) -- (0,1) node[above] {$y$} ;
-\end{tikzpicture}
-\caption{
-  To define parameters $\xi$ and $\eta$
-  we form three triangles
-  $OV_2V_3$, $OV_3V_1$, and $OV_1V_2$
-  which put together form the triangle $V_1V_2V_3$.
-  }
-\label{bary}
-\end{figure}
+\section{Assembly}
+
+Upon assembling the equations obtained by the above mentioned treatment,
+we get the following larger system of equations to be solved.
+\begin{align*}
+	\bar{v}^{\mathsf{T}} \bar{K} \bar{u} = f \bar{v}^{\mathsf{T}} \bar{f}
+\end{align*}
+where,
+\begin{enumerate}
+	\item the total number of nodes are $N^2$,
+	\item $\bar{u} \in \mathbb{R}^{N^2}$
+		and $\bar{u}_i$ is the value of $u$ at the $i$-th node,
+	\item similarly,
+		$\bar{v} \in \mathbb{R}^{N^2}$
+		and $\bar{v}_i$ is the value of $v$ at the $i$-th node
+	\item $\bar{K} \in \mathbb{R}^{N^2 \times N^2}$ and
+		\begin{align*}
+			\bar{K}_{ij} = \sum_{\{ i^\prime,j^\prime,e | e(i^\prime) = i \& e(j^\prime) = j \}} K_e(i^\prime, j^\prime)
+		\end{align*}
+		note that an element $e$ is defined by three node indices,
+		so if nodes $i_1$, $i_2$ and $i_3$ form the element $e$,
+		$e(k) = i_k$ for $k=$ 1, 2 and 3.
+	\item $\bar{f} \in \mathbb{R}^{N^2}$ and its $i$-th entry
+		\begin{align*}
+			\bar{f}_i = \sum_{\{ i^\prime,e | e(i^\prime) = i\}} \hat{f}_e(i^\prime)
+		\end{align*}
+\end{enumerate}
+
+We know the value of $u$
+on $\partial \Omega$ and the data point on $(x_d,y_d)$.
+As discussed earlier there are $n = N^2- 4N + 3$ free nodes
+$\mathcal{F} = [i_1, i_2, \dots, i_n]$
+and $n^\prime = 4N - 3$ data nodes
+$\mathcal{D} = [i_1^\prime, i_2^\prime, \dots, i_{n'}^\prime]$
+From the variational form,
+the value of the test function on the data nodes is zero
+and arbitrary on the free nodes,
+therefore,
+\begin{align}
+	& K \tilde{u} + K^\prime \tilde{u}^\prime = f f_0 \\
+	\implies 
+	& K \tilde{u} + f_d = f f_0 \label{main_eq}
+\end{align}
+where,
+\begin{enumerate}
+	\item the values at the free nodes is $\tilde{u} \in \mathbb{R}^n$,
+		the $k$-th entry
+		$\tilde{u}_k = \bar{u}_{i_k}$ for $\mathcal{F}(k) = i_k$, the $k$-th free node
+	\item the values at the data nodes is $\tilde{u}^\prime \in \mathbb{R}^{n^\prime}$,
+		the $k$-th entry
+		$\tilde{u}_k^\prime = \bar{u}_{i_k^\prime}$ for $\mathcal{D}(k) = i_k^\prime$, the $k$-th data node
+	\item the vector $f_0 \in \mathbb{R}^n$,
+		the $k$-th entry is $\bar{f}_{i_k}$ for $\mathcal{F}(k) = i_k$, the $k$-th free node
+	\item the matrix $K \in \mathbb{R}^{n \times n}$,
+		such that $K_{ij} = \bar{K}_{i' j'}$,
+		$i^\prime$ and $j^\prime$ are the $i$-th and $j$-th free nodes,
+		that is $\mathcal{F}(i) = i^\prime$
+		and $\mathcal{F}(j) = j^\prime$
+	\item the matrix $K^\prime \in \mathbb{R}^{n^\prime \times n^\prime}$
+		such that $K_{ij}^\prime = \bar{K}_{i' j'}$,
+		$i^\prime$ is the $i$-th free node,
+		that is $\mathcal{F}(i) = i^\prime$,
+		and $j^\prime$ is the $j$-th data node,
+		that is $\mathcal{D}(j) = j^\prime$
+\end{enumerate}
+
+\section{Justification for the loss}
+
+From equation \ref{main_eq} we form the residual $r$
+and use its squared sum as the loss as seen in equation \ref{loss}.
+\begin{align*}
+	r &= K u_{\mathit{out}} + f_d - f_{\mathit{val}} f_0 \\
+	\mathit{Loss} &= \sum_i r_i^2 \label{loss}
+\end{align*}
+
+\section{Other alternatives}
 
 \end{document}
 
