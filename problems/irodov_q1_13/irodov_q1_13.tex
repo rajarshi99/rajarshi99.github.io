@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{amsmath, amssymb}
+\usepackage{listings}
 \usepackage{tikz}
 \usepackage{subcaption}
 \usepackage[margin=1.2in]{geometry}
@@ -145,13 +146,70 @@ We will use the fact that
 \end{align*}
 to get the final expression for $T$.
 \begin{align}
-	T = \frac{lv}{v^2 - u^2}
+	T = \frac{lv}{v^2 - u^2} \label{ans}
 \end{align}
 
-\section{Physics major's solution}
-To be written please wait
-
 \section{Numerical solution}
+
+Interestingly,
+the above analytical solution
+does give us information
+about the trajectory of A.
+Given numerical values of $u$, $v$, and $l$,
+the trajectory of point A relative to B
+can be found by considering
+the ordinary differential equations
+\ref{rdot} and \ref{thetadot}
+to formulate an initial value problem
+as $r(0) = l$ and $\theta(0) = \pi / 2$.
+On applying the forward Euler's method
+we arrive at the following scheme
+to find the trajectory of A.
+\begin{align}
+	r_{n+1} &= r_n + \Delta t (u \cos \theta - v) \label{for_euler_r} \\
+	\theta_{n+1} &= \theta_n - \Delta t u \sin \theta \label{for_euler_t}
+\end{align}
+where $\Delta t$ is the time step considered
+for the discretisation of time,
+that is,
+\begin{align*}
+	r_n \approx r(n \Delta t)   \\
+	\theta_n \approx \theta(n \Delta t) \\
+\end{align*}
+Given below is a python function
+to simulate the motion of A relative to B.
+\lstinputlisting[linerange={1-26}, language=Python]{numSol.py}
+The consistency
+of the analytical result from equation \ref{ans}
+with the simulated relative position of
+A with respect to B
+for $(u,v,l) = (3,5,10)$
+can be seen in figure \ref{sim}.
+We observe this consistency
+for a wide range of problem parameters
+$u$, $v$ and $l$.
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.68\linewidth]{r_vs_t.png} \\
+	\includegraphics[width=0.68\linewidth]{theta_vs_t.png}
+	\caption{
+		\label{sim}
+		Simulation of $r$ and $\theta$
+		for $(u,v,l) = (3,5,10)$,
+		where $r$ is the distance AB
+		and $\theta$ the angle between the velocities of A and B.
+		The dashed line indicates
+		the time of contact $T$,
+		according to the analytical solution
+		given by equation \ref{ans},
+		$T = lv / (v^2 - u^2)$.
+	}
+\end{center}
+\end{figure}
+
+
+\section{Physics major's solution}
 To be written please wait
 
 \section*{Discussion}
