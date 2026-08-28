@@ -16,9 +16,15 @@ title: "[Rajarshi Dasgupta](pics/me.jpg)"
 
 ### Research Interests
 
-Machine Learning, Physics Informed Neural Networks, Finite Element Methods, Complex Systems
+Machine Learning,
+Graph Neural Networks,
+Scientific Computing,
+Physics Informed Neural Networks,
+Complex Systems
 
 ### Experience
+
+> **March 2026 - Present** Research Student under the collaboration of Prof.~Tsubokura and Prof.~Ganesan, through the LOTUS programme, at CFD Lab, Graduate School of System Informatics, Kobe University 
 
 > **December 2024** Organising Committee Member, [CASML-2024](https://casml.cc/), Indian Institute of Science (IISc), Bengaluru, India's first scientific machine learning conference, hosting up to 300 participants
 
