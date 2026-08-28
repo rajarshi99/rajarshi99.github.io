@@ -3,6 +3,7 @@ title: "[Rajarshi Dasgupta](pics/me.jpg)"
 ---
 
 > CFD Lab, Graduate School of System Informatics, Kobe University
+
 > AiREX lab, Department of Computational and Data Sciences, IISc
 
 <p align="right">
