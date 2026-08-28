@@ -2,17 +2,13 @@
 title: "[Rajarshi Dasgupta](pics/me.jpg)"
 ---
 
-> M.Tech (Research) Student, [AiREX lab](https://airexlab.cds.iisc.ac.in/)
-
-> [Department of Computational Data Sciences](https://cds.iisc.ac.in/)
-
-> [Indian Institute of Science](https://iisc.ac.in/)
+> CFD Lab, Graduate School of System Informatics, Kobe University
+> AiREX lab, Department of Computational and Data Sciences, IISc
 
 <p align="right">
 <a href="resume/Resume.pdf">Resume</a>,
 <a href="mailto:rajarshi99@gmail.com">Email</a>,
 <a href="https://github.com/rajarshi99/">GitHub</a>,
-<a href="https://www.linkedin.com/in/rajarshi99/">LinkedIn</a>
 </p>
 
 ---
