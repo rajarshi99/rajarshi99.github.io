@@ -16,7 +16,6 @@ title: "[Rajarshi Dasgupta](pics/me.jpg)"
 
 ### Research Interests
 
-Machine Learning,
 Graph Neural Networks,
 Scientific Computing,
 Physics Informed Neural Networks,
