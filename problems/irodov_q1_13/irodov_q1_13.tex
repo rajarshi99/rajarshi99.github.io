@@ -153,8 +153,7 @@ to get the final expression for $T$.
 
 Interestingly,
 the above analytical solution
-does give us information
-about the trajectory of A.
+does not give us the trajectory of A.
 Given numerical values of $u$, $v$, and $l$,
 the trajectory of point A relative to B
 can be found by considering
@@ -191,8 +190,8 @@ $u$, $v$ and $l$.
 
 \begin{figure}
 \begin{center}
-	\includegraphics[width=0.68\linewidth]{r_vs_t.png} \\
-	\includegraphics[width=0.68\linewidth]{theta_vs_t.png}
+	\includegraphics[width=0.48\linewidth]{r_vs_t.png} 
+	\includegraphics[width=0.465\linewidth]{theta_vs_t.png}
 	\caption{
 		\label{sim}
 		Simulation of $r$ and $\theta$
@@ -210,10 +209,102 @@ $u$, $v$ and $l$.
 
 
 \section{Physics major's solution}
-To be written please wait
+
+Let us treat the time to collision $T$,
+as a function of $r$ and $\theta$.
+Now,
+given a trajectory $r(t), \theta(t)$,
+the rate of change of $T$ with respect to $t$
+should be precisely -1.
+\begin{align*}
+	& \frac{dT}{dt} = -1 \\
+	\implies & \dot{r} \frac{\partial T}{\partial r}
+		+ \dot{\theta} \frac{\partial T}{\partial \theta} = -1
+\end{align*}
+Now, using equations \ref{rdot} and \ref{thetadot}
+we arrive at a partial differential equation for $T$.
+\begin{align}
+	\nabla T \cdot [(-v + u \cos \theta) \hat{e}_r
+		- u \sin \theta \hat{e}_{\theta}]  = -1 \label{pde}
+\end{align}
+Remember that in polar coordinates,
+$\nabla T = \hat{e}_r \partial T / \partial r  + (1/r) \hat{e}_{\theta} \partial T / \partial \theta$.
+To pose this as boundary value problem,
+we will use the known values of $T$ along the $x$-axis.
+\begin{align}
+	T(r,\theta) =
+	\begin{cases}
+		\frac{r}{v-u} \text{, for } r > 0, \theta = 0 \\
+		0 \text{, for } r = 0 \\
+		\frac{r}{v+u} \text{, for } r > 0, \theta = \pi \\
+	\end{cases}
+	\label{bvp}
+\end{align}
+
+Let us consider the following form of the solution
+for the boundary value problem
+described by equations \ref{pde} and \ref{bvp}.
+\begin{align*}
+	T(r,\theta) = R(r)A(\theta)
+\end{align*}
+From the boundary values,
+equation \ref{bvp},
+it follows that $R(r)A(0) = r / (v+u)$,
+hence we can choose $R(r) = r$
+and absorb other constant factors in $A(0)$.
+This linearity of $R$
+can also be justified from equation \ref{pde}
+as $(-v + u \cos \theta) \hat{e}_r - u \sin \theta \hat{e}_{\theta}$
+and the right hand side are both independent of $r$.
+Now, plugging the ansatz $T = r A(\theta)$
+into the partial differential equation \ref{pde},
+we get a first order equation for $A$
+\begin{align*}
+	& (-v + u \cos \theta) A
+	- u \sin \theta \frac{dA}{d\theta} = -1 \\
+	\implies 
+	& \frac{dA}{d\theta}
+	+ \frac{v - u \cos \theta}{u \sin \theta} A
+	= \frac{1}{u \sin \theta} \\
+	\implies 
+	& \frac{d}{d\theta}(\mu A) = \frac{\mu}{u \sin \theta}
+\end{align*}
+where
+\begin{align}
+	\mu(\theta) =
+	\exp \int \frac{v - u \cos \theta}{u \sin \theta} d\theta
+\end{align}
+is the integrating factor.
+After finding $\mu$,
+$A = \frac{1}{\mu} \int \frac{\mu}{u \sin \theta} d\theta$
+and working out the arbitrary constants
+using equation \ref{bvp},
+we get
+\begin{align}
+	A(\theta) &= \frac{1}{v} \frac{1 + (u/v) \cos \theta}{1 - (u/v)^2} \\
+	T(r,\theta) &= r A(\theta) = r \frac{v + u \cos \theta}{v^2 - u^2}
+\end{align}
+It can be verified,
+that this expression for $T$
+satisfies the boundary value problem defined by
+equations \ref{pde} and \ref{bvp}.
+From mathematical arguments of existence and uniqueness
+we can be assured that it is indeed the correct solution.
+
+So,
+for solution to the original problem,
+we plug $r=l$ and $\theta=\pi/2$
+to get $T = lv / (v^2 - u^2)$
+which is identical to \ref{ans}.
 
 \section*{Discussion}
-To be written please wait
+
+\begin{figure}
+	\begin{tabular}{cc}
+	\includegraphics[width=0.48\linewidth]{plotT.png} &
+	\includegraphics[width=0.48\linewidth]{plotA.png}
+	\end{tabular}
+\end{figure}
 
 \begin{thebibliography}{9}
 \bibitem{Irodov} I. E. Irodov, \textit{Problems in General Physics}, Mir Publishers, 1988.
