@@ -125,10 +125,11 @@ and equation \ref{rdot}.
 \end{align*}
 Simplifying the above expression
 we obtain the following second order differential equation.
-\begin{align*}
+\begin{align}
 	& r\ddot{r} + \dot{r}^2 + 2\dot{r}v + v^2 - u^2 = 0 \\
-	\implies & \frac{d}{dt}(r\dot{r} + 2rv) + v^2 - u^2 = 0 \\
-\end{align*}
+	\implies & \frac{d}{dt}(r\dot{r} + 2rv) + v^2 - u^2 = 0 
+	\label{r1stod}
+\end{align}
 Now, integrating with respect to time from $t = 0$ to $T$
 we get the following expression.
 \begin{align*}
@@ -207,7 +208,6 @@ $u$, $v$ and $l$.
 \end{center}
 \end{figure}
 
-
 \section{Physics major's solution}
 
 Let us treat the time to collision $T$,
@@ -229,7 +229,7 @@ we arrive at a partial differential equation for $T$.
 \end{align}
 Remember that in polar coordinates,
 $\nabla T = \hat{e}_r \partial T / \partial r  + (1/r) \hat{e}_{\theta} \partial T / \partial \theta$.
-To pose this as boundary value problem,
+To pose this as a boundary value problem,
 we will use the known values of $T$ along the $x$-axis.
 \begin{align}
 	T(r,\theta) =
@@ -281,7 +281,7 @@ and working out the arbitrary constants
 using equation \ref{bvp},
 we get
 \begin{align}
-	A(\theta) &= \frac{1}{v} \frac{1 + (u/v) \cos \theta}{1 - (u/v)^2} \\
+	A(\theta) &= \frac{1}{v} \frac{1 + (u/v) \cos \theta}{1 - (u/v)^2} \label{AofTheta}\\
 	T(r,\theta) &= r A(\theta) = r \frac{v + u \cos \theta}{v^2 - u^2}
 \end{align}
 It can be verified,
@@ -290,21 +290,99 @@ satisfies the boundary value problem defined by
 equations \ref{pde} and \ref{bvp}.
 From mathematical arguments of existence and uniqueness
 we can be assured that it is indeed the correct solution.
+The visualisation of $T$ and $A$
+can be seen in figure \ref{TandA}.
 
 So,
 for solution to the original problem,
 we plug $r=l$ and $\theta=\pi/2$
 to get $T = lv / (v^2 - u^2)$
-which is identical to \ref{ans}.
+which is identical to equation \ref{ans}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{TA} 
+	\caption{\label{TandA}
+	The coordinates $r$ and $\theta$ are
+	the distance between particles 
+	and the angle between their velocities respectively.
+	Given a point $(x,y)$,
+	$r = \sqrt{x^2 + y^2}$
+	and $\theta$ is the angle from the negative $x$-axis.
+		(a)
+			Contours of collision time $T(r,\theta) = r A(\theta)$
+		(b)
+			Function $A$ of $\theta$ given by equation \ref{AofTheta}
+	}
+\end{figure}
 
 \section*{Discussion}
 
-\begin{figure}
-	\begin{tabular}{cc}
-	\includegraphics[width=0.48\linewidth]{plotT.png} &
-	\includegraphics[width=0.48\linewidth]{plotA.png}
-	\end{tabular}
-\end{figure}
+We have a problem in two dimensions, and so,
+it is only natural that all aforementioned attempts involve the
+coupled first order ordinary differential equations
+\ref{rdot} and \ref{thetadot}.
+The frame of reference is set on particle $B$ with polar bases,
+which moves rectilinearly and uniformly
+with respect to the ground.
+It is interesting to note that $r$ and $\theta$
+decrease monotonically with time,
+that is,
+$\dot{r}, \dot{\theta} < 0$.
+So,
+as the distance decreases with time,
+we can be assured of collision, $r_{\text{final}}=0$.
+From equation \ref{thetadot},
+we can also discern the angle of impact
+$\theta_{\text{final}} = 0 \text{ or } \pi$.
+In other words,
+collision is guaranteed (as $v > u$)
+and that it happens either from behind or head on.
+Interestingly enough,
+upon collision,
+the kinematics,
+or the rules of motion set by the problem,
+can not be followed further in time.
+
+At first glance,
+it seems like we could determine the trajectory,
+$r(t),\theta(t)$ as closed form expressions of time $t$.
+Following the school kid's approach,
+we first arrive at a second order differential equation
+upon eliminating $\theta$,
+and then with a stroke of luck,
+we find that it can be integrated once to decrease the order
+and arrive at equation \ref{r1stod}.
+Before collision,
+when $t<T$ and $r > 0$,
+to find the closed form solution for $r(t)$,
+we are required to solve the following initial value problem.
+\begin{align*}
+	& r(0) = l,
+	\dot{r}(0) = -v + u \cos(\pi/2) = -v \\
+	& r(t) \dot{r}(t) + 2v r(t) + (v^2 - u^2)t - lv = 0
+\end{align*}
+This may fall into the category of the
+Abel equation of the second kind,
+which as it turns out can not be solved in general.
+My knowledge regarding this is limited,
+so I went ahead to solve for the collision condition,
+where $t=T$ and $r(T) = 0$
+simplify the expression and yield the answer,
+which is $T$ expressed as function of $u$, $v$ and $l$.
+
+The other more complicated theoretical attempt
+involves treating the time to collision $T$ as a field
+and transforming the problem to standard boundary value problem.
+This approach seems to involve dirty mathematical tricks
+of which a physics major's student may be acquainted with
+and not rely on lucky strikes.
+
+Finally,
+the numerical solution,
+shedding some light on the trajectory,
+can found by applying the discrete time approximations
+from equations \ref{for_euler_r} \ref{for_euler_t}.
 
 \begin{thebibliography}{9}
 \bibitem{Irodov} I. E. Irodov, \textit{Problems in General Physics}, Mir Publishers, 1988.
