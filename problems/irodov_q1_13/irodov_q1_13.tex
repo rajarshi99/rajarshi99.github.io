@@ -161,13 +161,13 @@ can be found by considering
 the ordinary differential equations
 \ref{rdot} and \ref{thetadot}
 to formulate an initial value problem
-as $r(0) = l$ and $\theta(0) = \pi / 2$.
+as $r_0 = r(0) = l$ and $\theta_0 = \theta(0) = \pi / 2$.
 On applying the forward Euler's method
 we arrive at the following scheme
 to find the trajectory of A.
 \begin{align}
-	r_{n+1} &= r_n + \Delta t (u \cos \theta - v) \label{for_euler_r} \\
-	\theta_{n+1} &= \theta_n - \Delta t u \sin \theta \label{for_euler_t}
+	r_{n+1} &= r_n - \Delta t (v - u \cos \theta_n) \label{for_euler_r} \\
+	\theta_{n+1} &= \theta_n - \Delta t u \sin \theta_n / r_n \label{for_euler_t}
 \end{align}
 where $\Delta t$ is the time step considered
 for the discretisation of time,
@@ -309,10 +309,11 @@ which is identical to equation \ref{ans}.
 	Given a point $(x,y)$,
 	$r = \sqrt{x^2 + y^2}$
 	and $\theta$ is the angle from the negative $x$-axis.
+	Problem parameters $u=3,v=5$.
 		(a)
-			Contours of collision time $T(r,\theta) = r A(\theta)$
+			Collision time $T(r,\theta) = r A(\theta)$
 		(b)
-			Function $A$ of $\theta$ given by equation \ref{AofTheta}
+			$A$ of $\theta$ given by equation \ref{AofTheta}
 	}
 \end{figure}
 
@@ -369,7 +370,7 @@ My knowledge regarding this is limited,
 so I went ahead to solve for the collision condition,
 where $t=T$ and $r(T) = 0$
 simplify the expression and yield the answer,
-which is $T$ expressed as function of $u$, $v$ and $l$.
+which is $T$ expressed in terms of $u$, $v$ and $l$.
 
 The other more complicated theoretical attempt
 involves treating the time to collision $T$ as a field
