@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>-</title>
+  <meta name="author" content="Rajarshi" />
+  <title>My website</title>
   <style>
     html {
       color: #1a1a1a;
@@ -58,10 +59,6 @@
       color: #1a1a1a;
     }
     img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
       max-width: 100%;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -179,7 +176,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -233,9 +230,13 @@
   </style>
 </head>
 <body>
-<h1 id="about-my-website">About my website</h1>
-<p>My <a href="https://rajarshi99.github.io/">website</a> is hosted by
-GitHub. To do so I had to create a repository with the name
+<header id="title-block-header">
+<h1 class="title">My website</h1>
+<p class="author">Rajarshi</p>
+</header>
+<p>An attempt at a simple and systematic way to create my <a
+href="https://rajarshi99.github.io/">portfolio website</a>. To host it
+on GitHub I had to create a repository with the name
 <code>rajarshi99.github.io</code> and the rest was pretty easy. If your
 github username is xyz then you would need to create the repository
 <code>xyz.github.io</code>.</p>
@@ -254,7 +255,7 @@ script <code>gen_toc.awk</code> on the output of the <code>ls</code>
 command, which lists directory contents.</p>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">more.html :</span><span class="dt"> more_header.md gen_toc.awk </span><span class="ch">$(</span><span class="dt">DEP</span><span class="ch">)</span><span class="dt"> </span><span class="ch">$(</span><span class="dt">MD_DEEP</span><span class="ch">)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>ls -lt */* \</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">    </span>ls -ltd */* ; ls -ltd README.md \</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        | awk -f gen_toc.awk \</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        | cat more_header.md - footer.txt \</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        | pandoc -s -o <span class="ch">$@</span></span></code></pre></div>
@@ -267,10 +268,10 @@ by-product. ✌️</p>
 <p>I will make a script to automatically create an interactive page to
 display the webpages as nodes and the hyperlinks as edges of a
 graph.</p>
-<p>Last updated: 8 Aug 2025</p>
+<p>Last updated: 12 Sep 2026</p>
 <hr />
 <p>Links to <a href="index.html">homepage</a>, <a
-href="resume/Resume.pdf">resume</a>, <a href="proj.html">projects</a>,
-and <a href="more.html">more…</a></p>
+href="resume/Resume.pdf">resume</a>, and <a
+href="more.html">more…</a></p>
 </body>
 </html>

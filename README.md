@@ -1,8 +1,11 @@
-# About my website
+---
+title: My website
+author: Rajarshi
+---
 
-My [website](https://rajarshi99.github.io/)
-is hosted by GitHub.
-To do so I had to create a repository
+An attempt at a simple and systematic way
+to create my [portfolio website](https://rajarshi99.github.io/).
+To host it on GitHub I had to create a repository
 with the name `rajarshi99.github.io`
 and the rest was pretty easy.
 If your github username is xyz
@@ -32,7 +35,7 @@ on the output of the `ls` command,
 which lists directory contents.
 ```Makefile
 more.html : more_header.md gen_toc.awk $(DEP) $(MD_DEEP)
-	ls -lt */* \
+	{ ls -ltd */*.md ; ls -ltd README.md ; } \
 		| awk -f gen_toc.awk \
 		| cat more_header.md - footer.txt \
 		| pandoc -s -o $@
@@ -52,4 +55,4 @@ to automatically create an interactive page
 to display the webpages as nodes
 and the hyperlinks as edges of a graph.
 
-Last updated: 8 Aug 2025
+Last updated: 12 Sep 2026

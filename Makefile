@@ -12,7 +12,7 @@ all: $(OUT)
 		| pandoc -s -o $@
 
 more.html : more_header.md gen_toc.awk $(DEP) $(MD_DEEP)
-	ls -lt */* \
+	{ ls -ltd */*.md ; ls -ltd README.md ; } \
 		| awk -f gen_toc.awk \
 		| cat more_header.md - footer.txt \
 		| pandoc -s -o $@
