@@ -9,7 +9,7 @@ title: "[Rajarshi Dasgupta](pics/me.jpg)"
 <p align="right">
 <a href="resume/Resume.pdf">Resume</a>,
 <a href="mailto:rajarshi99@gmail.com">Email</a>,
-<a href="https://github.com/rajarshi99/">GitHub</a>,
+<a href="https://github.com/rajarshi99/">GitHub</a>
 </p>
 
 ---

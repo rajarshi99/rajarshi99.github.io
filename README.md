@@ -19,6 +19,11 @@ I use the `pandoc` program
 to generate the `.html` pages
 from the `.md files`.
 
+## Website theme
+
+I am using `css` themes I found in a public repository
+by [MingFei](https://github.com/MingFei2001/pandoc-css).
+
 ## What is `footer.txt`?
 
 The `Makefile` concatenates `footer.txt`
@@ -55,4 +60,4 @@ to automatically create an interactive page
 to display the webpages as nodes
 and the hyperlinks as edges of a graph.
 
-Last updated: 12 Sep 2026
+Last updated: 24 Sep 2026
