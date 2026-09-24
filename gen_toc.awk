@@ -7,5 +7,6 @@ split($9, fname, ".") == 2 {
 			print line
 		}
 	print "..."
-	printf "<p align=\"right\"> %s </p>\n\n", $6 $7
+	# printf "<p align=\"right\"> %s </p>\n\n", entry " " $6 $7
+	printf "<p style=\"font-size: 0.75em;\">\n<span> %s </span>\n<span style=\"float: right;\"> %s </span>\n</p>\n\n", entry, $6 $7
 	}

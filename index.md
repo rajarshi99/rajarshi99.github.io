@@ -1,18 +1,18 @@
+<span style="float: right;">
+<a href="resume/Resume.pdf">Resume</a>,
+<a href="mailto:rajarshi99@gmail.com">Email</a>,
+<a href="https://github.com/rajarshi99/">GitHub</a>
+</span>
+
 ---
 title: "[Rajarshi Dasgupta](pics/me.jpg)"
 ---
+
 
 > CFD Lab, Graduate School of System Informatics, Kobe University
 
 > AiREX lab, Department of Computational and Data Sciences, IISc
 
-<p align="right">
-<a href="resume/Resume.pdf">Resume</a>,
-<a href="mailto:rajarshi99@gmail.com">Email</a>,
-<a href="https://github.com/rajarshi99/">GitHub</a>
-</p>
-
----
 
 ### Research Interests
 
