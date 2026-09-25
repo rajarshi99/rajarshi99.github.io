@@ -1,6 +1,5 @@
 ---
 title: Emergent activity network in a model of puncuated equilibrium
-author: Rajarshi
 ---
 
 Find [research work](https://link.springer.com/article/10.1140/epjp/s13360-022-03581-y)
