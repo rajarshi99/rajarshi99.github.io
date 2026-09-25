@@ -5,7 +5,7 @@ split($9, fname, ".") == 2 {
 		if(sub(/title:/, "", line))
 			printf "\n\n\n- **[%s](%s.html)**\n", line, entry
 		else if((line !~ /author:.*/) && (line !~ /^---/))
-			print line
+			printf "\n%s", line
 		}
 	print "..."
 	}
