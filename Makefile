@@ -13,11 +13,11 @@ all: $(OUT)
 	awk -f add_footer.awk $< \
 		| pandoc -s -o $@ --css=$$(realpath --relative-to=$$(dirname $@) $(THEME))
 
-more.html : more_header.md gen_toc.awk $(DEP) $(MD_DEEP)
+more.html : gen_toc.awk $(DEP) $(MD_DEEP)
 	{ ls -ltd */*.md ; ls -ltd README.md ; } \
 		| awk -f gen_toc.awk \
-		| cat more_header.md - footer.txt \
-		| pandoc -s -o $@ --css=$$(realpath --relative-to=$$(dirname $@) $(THEME))
+		| cat - footer.txt \
+		| pandoc -s -o $@ --css=$$(realpath --relative-to=$$(dirname $@) $(THEME)) --metadata title="more..."
 
 clean:
 	rm -rf $(OUT)
